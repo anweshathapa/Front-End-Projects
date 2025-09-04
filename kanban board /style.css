@@ -1,0 +1,135 @@
+/*  this is the CSS Code  */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Comic Sans MS', sans-serif;
+  background-color: #bfcbeb; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.5s ease; 
+}
+
+
+.container {
+  text-align: center;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+
+h1{
+  color: #5a5a5a; 
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+.board {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+.list{
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 20px;
+  width: 30%;
+  min-height: 400px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; 
+}
+
+
+.list:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+.list h2 {
+    color: #5a5a5a;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.card {
+    background-color: #ecafd8;
+    color: #5a5a5a;
+    padding: 1rem;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    cursor: grab;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+.card:active {
+    cursor: grabbing;
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.card.pop-in {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+.list.over {
+    background-color: #c2b1e2;
+}
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .board {
+        flex-direction: column;
+        align-items: center;
+    }
+    .list {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+h2::after {
+    font-family: 'Noto Color Emoji', sans-serif;
+    content: ' ✨';
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    font-size: 1.2em;
+}
+.card {
+  
+    position: relative;
+    overflow: hidden;
+}
+.card::after {
+    font-family: 'Noto Color Emoji', sans-serif;
+    content:'⭐'; 
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.card:hover::after {
+    opacity: 1;
+    transform: rotate(360deg);
+}
