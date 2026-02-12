@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark Saver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="toast-container"></div>
+    <div class="app-container">
+        <div class="header-nav">
+            <div class="backup-actions">
+                <button id="export-btn" title="Export Backup"><i class="fas fa-arrow-down"></i></button>
+                <button id="import-trigger" title="Restore Backup"><i class="fas fa-arrow-up"></i></button>
+                <input type="file" id="import-btn" accept=".json" style="display: none;" />
+            </div>
+            <div class="theme-switch-wrapper">
+                <input type="checkbox" id="theme-checkbox" class="theme-checkbox">
+                <label for="theme-checkbox" class="theme-label">
+                    <i class="fas fa-sun icon-sun"></i>
+                    <i class="fas fa-moon icon-moon"></i>
+                    <div class="ball"></div>
+                </label>
+            </div>
+        </div>
+
+        <h1><i class="fas fa-bookmark"></i> Bookmark Saver</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <i class="fas fa-tag"></i>
+                <input type="text" id="bookmark-name" placeholder="Bookmark Name" />
+            </div>
+            <div class="input-group">
+                <i class="fas fa-link"></i>
+                <input type="url" id="bookmark-url" placeholder="Paste URL (https://...)" />
+            </div>
+            <div class="row-group">
+                <select id="bookmark-category">
+                    <option value="General">🌐 General</option>
+                    <option value="Work">💼 Work</option>
+                    <option value="Social">🤝 Social</option>
+                    <option value="Study">📚 Study</option>
+                </select>
+                <button id="add-bookmark" class="btn-main">+ Add Link</button>
+            </div>
+        </div>
+
+        <div class="filter-pills" id="filter-pills">
+            <button class="pill active" data-category="all">All</button>
+            <button class="pill" data-category="General">General</button>
+            <button class="pill" data-category="Work">Work</button>
+            <button class="pill" data-category="Social">Social</button>
+            <button class="pill" data-category="Study">Study</button>
+        </div>
+
+        <div class="controls-bar">
+            <div class="input-group search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search library..." />
+            </div>
+            <div class="sort-wrapper">
+                <label for="sort-select" class="sort-label">Sort By:</label>
+                <select id="sort-select" class="sort-dropdown">
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="az">A-Z</option>
+                    <option value="category">Category</option>
+                </select>
+            </div>
+        </div>
+
+        <ul id="bookmark-list"></ul>
+        <button id="clear-all" class="btn-clear">Clear All Data</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
