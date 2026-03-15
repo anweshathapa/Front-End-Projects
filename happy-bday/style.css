@@ -39,8 +39,8 @@ body {
 
   -o-animation: cake 1s infinite;
   transform: scale(8.5);
-    z-index: 1; 
-  overflow: visible; 
+    z-index: 1; /* optional */
+  overflow: visible; /* allow candles to "escape" */
 
 }
 
@@ -6860,68 +6860,4 @@ body {
     height: 5px;
     width: 5px;
   }
-}
-
-
-
-#cursorGlow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
-    border-radius: 50%;
-    pointer-events: none; 
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    mix-blend-mode: screen;
-}
-
-/* --- SPARKLE TRAIL EFFECT --- */
-.sparkle-trail {
-    position: fixed;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    animation: sparkleFade 0.8s linear forwards;
-}
-
-@keyframes sparkleFade {
-    0% { transform: scale(1) translateY(0); opacity: 1; }
-    100% { transform: scale(0) translateY(20px); opacity: 0; }
-}
-
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 600px) {
-    #mainTitle {
-        font-size: 2rem; 
-    }
-
-    #subTitle {
-        font-size: 1rem;
-    }
-    .cake {
-        transform: scale(5.5); 
-        animation: hover-mobile 3s infinite ease-in-out;
-    }
-
-    @keyframes hover-mobile {
-        0%, 100% { transform: scale(5.5) translateY(0); }
-        50% { transform: scale(5.5) translateY(-10px); }
-    }
-    .container {
-        width: 90%;
-        gap: 10px;
-    }
-    
-    #secretMessage {
-        font-size: 1.1rem;
-    }
-
-    #birthdayPhoto {
-        max-width: 180px;
-    }
 }
